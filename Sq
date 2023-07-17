@@ -1,0 +1,68 @@
+using System;
+
+namespace test_mind
+{
+    public class ClassArea
+    {
+
+        public double SqRn(int R)
+        {
+            if (R > 0) 
+            {
+                double ResRn;
+                ResRn = 3.14 * Math.Pow(R, 2);
+                return ResRn;
+            }
+            else
+            {
+                Console.Write("Радиус не может быть отрицательным");
+                return -1;
+            }
+        }
+
+        public double SqRec(int A, int B, int C)
+        {
+            double ResRec;
+            if ((A + B > C) && (A + C > B) && (B + C > A))
+            {
+                if ((A * A + B * B == C*C) || (B * B + C * C == A*A) || (A * A + C * C == B*B))
+                {
+                    if (A * A + B * B == C * C)
+                    {
+                        ResRec = 0.5 * A * B;
+                        return ResRec;
+                    }
+                    else if (B * B + C * C == A * A)
+                    {
+                        ResRec = 0.5 * C * B;
+                        return ResRec;
+                    }
+                    else if (A * A + C * C == B * B)
+                    {
+                        ResRec = 0.5 * A * C;
+                        return ResRec;
+                    }
+                    else
+                    {
+                        Console.Write("Ошибка");
+                        return -1;
+                    }
+                }
+                else
+                {
+                    int p;
+                    p = (A + B + C) / 2;
+                    ResRec = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+                    return ResRec;
+                }
+            }
+
+            else
+            {
+                Console.Write("Такого треугольника не существует");
+                return -1;
+            }
+        }
+
+    }
+}
